@@ -1,12 +1,14 @@
 package com.springboot.coffee.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Pattern;
 import java.sql.Struct;
 
 @Getter
+@Setter
 public class CoffeePatchDto {
 
     private long coffeeId;

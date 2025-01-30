@@ -66,14 +66,14 @@ public class CoffeeController {
     }
 
     @GetMapping
-    public ResponseEntity getCoffees(@Positive @RequestParam("page") int page,
-                                     @Positive @RequestParam("size") int size) {
-        Page<Coffee> coffeePage = coffeeService.findCoffees(page, size);
+    public ResponseEntity getCoffees(@Positive @RequestParam int page,
+                                     @Positive @RequestParam int size) {
+        Page<Coffee> coffeePage = coffeeService.findCoffees(page-1, size);
         //List로 매핑
         List<Coffee> coffees = coffeePage.getContent();
 
         return new ResponseEntity<>(
-                new MultiResponseDto<>(coffees, coffeePage),
+                new MultiResponseDto<>(mapper.coffeesToCoffeeResponseDtos(coffees), coffeePage),
                 HttpStatus.OK
         );
 

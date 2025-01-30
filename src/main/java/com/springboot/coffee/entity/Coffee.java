@@ -1,5 +1,6 @@
 package com.springboot.coffee.entity;
 
+import com.springboot.audit.Auditable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class Coffee {
+public class Coffee extends Auditable {
     //기본키
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

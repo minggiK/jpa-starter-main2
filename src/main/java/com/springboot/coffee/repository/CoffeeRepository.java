@@ -15,7 +15,7 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Long> {
     Optional<Coffee> findByCoffeeCode(String coffeeCode);
 
     //메서드 이름만으로 coffeeId로 쿼리를 작성할 수 없기 때문에 coffeeId로 coffee를 조회하는 쿼리를 명시적으로 지정
-    @Query(value = "SELECT c FROM coffee WHERE c.coffeeId = : coffeeId")
+    @Query(value = "SELECT c FROM Coffee c WHERE c.coffeeId = : coffeeId")
     //coffeeId로 기존에 등록되어있는 커피 조회
     Optional<Coffee> findByCoffee(long coffeeId);
 }
